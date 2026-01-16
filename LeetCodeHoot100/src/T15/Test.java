@@ -29,7 +29,8 @@ import java.util.List;
 //解释：唯一可能的三元组和为 0 。
 public class Test {
     public static void main(String[] args) {
-
+        int[] nums = {-1, 0, 1, 2, -1, -4};
+        System.out.println(threeSum(nums));
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
