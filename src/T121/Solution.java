@@ -1,4 +1,7 @@
 package T121;
+
+import java.util.Map;
+
 //给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
 //你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
 //返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
@@ -15,11 +18,16 @@ package T121;
 //解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
 public class Solution {
     public int maxProfit(int[] prices) {
-        int cost = Integer.MAX_VALUE, profit = 0;
-        for (int price : prices) {
-            cost = Math.min(cost, price);
-            profit = Math.max(profit, price - cost);
+        //维护一个最低价格
+       int minPrice = Integer.MAX_VALUE;
+       //维护一个最大利润
+        int maxProfit = 0;
+        //遍历数组
+        for(int price : prices){
+            //更新最低价格
+            minPrice = Math.min(minPrice,price);
+            maxProfit = Math.max(maxProfit,price-minPrice);
         }
-        return profit;
+        return maxProfit;
     }
 }
