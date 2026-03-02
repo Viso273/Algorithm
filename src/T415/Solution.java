@@ -18,16 +18,22 @@ package T415;
 public class Solution {
     public String addStrings(String num1, String num2) {
         StringBuilder res = new StringBuilder("");
+        // 从个位开始相加，carry表示进位信息
         int i = num1.length() - 1, j = num2.length() - 1, carry = 0;
         while(i >= 0 || j >= 0){
             int n1 = i >= 0 ? num1.charAt(i) - '0' : 0;
             int n2 = j >= 0 ? num2.charAt(j) - '0' : 0;
             int tmp = n1 + n2 + carry;
+            // 更新进位信息
             carry = tmp / 10;
+            // 将结果保存在res中
             res.append(tmp % 10);
+            // 更新i和j
             i--; j--;
         }
+        // 最高位如果产生进位，则需要加上1
         if(carry == 1) res.append(1);
+        // 反转res,因为append函数是从末尾开始添加的
         return res.reverse().toString();
     }
 }
