@@ -15,4 +15,15 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        ListNode p = this;
+        while (p != null) {
+            sb.append(p.val);
+            if (p.next != null) sb.append(" → ");
+            p = p.next;
+        }
+        return sb.toString();
+    }
 }
