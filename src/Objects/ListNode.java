@@ -27,4 +27,20 @@ public class ListNode {
         }
         return sb.toString();
     }
+
+    public static ListNode of(int... values) {
+        if (values == null || values.length == 0) {
+            return null;
+        }
+
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        for (int val : values) {
+            current.next = new ListNode(val);
+            current = current.next;
+        }
+
+        return dummy.next;
+    }
 }
